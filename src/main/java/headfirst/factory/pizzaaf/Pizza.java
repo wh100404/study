@@ -8,7 +8,7 @@ public abstract class Pizza {
 
     Dough dough;
     Sauce sauce;
-    Veggies veggies[];
+    Veggies[] veggies;
     Cheese cheese;
     Pepperoni pepperoni;
     Clams clam;
