@@ -33,13 +33,11 @@ public abstract class Pizza {
 
     @Override
     public String toString() {
-        StringBuffer display = new StringBuffer();
-        display.append("---- " + name + " ----\n");
-        display.append(dough + "\n");
-        display.append(sauce + "\n");
-        for (String topping : toppings){
-            display.append(topping + "\n");
-        }
-        return display.toString();
+        return "Pizza{" +
+                "name='" + name + '\'' +
+                ", dough='" + dough + '\'' +
+                ", sauce='" + sauce + '\'' +
+                ", toppings=" + toppings +
+                '}';
     }
 }
