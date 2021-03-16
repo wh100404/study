@@ -20,26 +20,45 @@ public class Day_313_1 extends JFrame {
         js.setBounds(200,30,300,30);
         c.add(js);
 
-        c.add(new JLabel("学生姓名"));
+
+
+
+        JLabel jb=new JLabel("学生姓名");
+        jb.setLocation(150,30);
+        c.add(jb);
         JButton btn1=new JButton("添加学生");
         btn1.setBounds(650,100,150,30);
         JButton btn2=new JButton("删除学生");
         btn2.setBounds(650,200,150,30);
+        ArrayList<String> array=new ArrayList<>();
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jt.append(js.getText());
+                String text=js.getText();
+                if(text.isEmpty())
+                    return;
+                array.add(text);
+
             }
+
         });
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+            }
+
+            protected void do_button_actionPerformed(ActionEvent E){
+                ArrayList<String> array=new ArrayList();
             }
         });
         c.add(btn1);
         c.add(btn2);
 
         setVisible(true);
+    }
+    private void replaceModel(){
+
     }
 
     public static void main(String[] args) {
