@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class Day_313_1 extends JFrame {
 
     ArrayList<String> array = new ArrayList<>();
+    private JTextField textField;
+    private JList list;
 
     public Day_313_1() {
         setBounds(200, 200, 800, 500);
@@ -32,27 +34,19 @@ public class Day_313_1 extends JFrame {
         JButton btn2 = new JButton("删除学生");
         btn2.setBounds(650, 200, 150, 30);
 
-        btn1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String text = js.getText();
-                if (text.isEmpty())
-                    return;
-                boolean b = array.add(text);
-                System.out.println("添加结果： " + b);
-            }
-
+        btn1.addActionListener(e -> {
+            String text = js.getText();
+            if (text.isEmpty())
+                return;
+            boolean b = array.add(text);
+            System.out.println("添加结果： " + b);
+            replaceModel();
         });
-        btn2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                boolean b = array.remove(js.getText());
-                System.out.println("删除结果： " + b);
-            }
-
-            protected void do_button_actionPerformed(ActionEvent E) {
-
-            }
+        btn2.addActionListener(e -> {
+            Object value = list.getSelectedValue();
+            boolean b = array.remove(value);
+            System.out.println("删除结果： " + b);
+            replaceModel();
         });
         c.add(btn1);
         c.add(btn2);
@@ -61,7 +55,17 @@ public class Day_313_1 extends JFrame {
     }
 
     private void replaceModel() {
+        list.setModel(new AbstractListModel() {
+            @Override
+            public int getSize() {
+                return array.size();
+            }
 
+            @Override
+            public Object getElementAt(int index) {
+                return array.get(index);
+            }
+        });
     }
 
     public static void main(String[] args) {
