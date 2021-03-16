@@ -7,48 +7,50 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Day_313_1 extends JFrame {
-    public Day_313_1(){
-        setBounds(200,200,800,500);
+
+    ArrayList<String> array = new ArrayList<>();
+
+    public Day_313_1() {
+        setBounds(200, 200, 800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        Container c=getContentPane();
+        Container c = getContentPane();
         setLayout(null);
-        JTextArea jt=new JTextArea();
+        JTextArea jt = new JTextArea();
         jt.setColumns(100);
-        jt.setBounds(0,80,600,350);
+        jt.setBounds(0, 80, 600, 350);
         c.add(jt);
-        JTextField js=new JTextField();
-        js.setBounds(200,30,300,30);
+        JTextField js = new JTextField();
+        js.setBounds(200, 30, 300, 30);
         c.add(js);
 
 
-
-
-        JLabel jb=new JLabel("学生姓名");
-        jb.setLocation(150,30);
+        JLabel jb = new JLabel("学生姓名");
+        jb.setLocation(150, 30);
         c.add(jb);
-        JButton btn1=new JButton("添加学生");
-        btn1.setBounds(650,100,150,30);
-        JButton btn2=new JButton("删除学生");
-        btn2.setBounds(650,200,150,30);
-        ArrayList<String> array=new ArrayList<>();
+        JButton btn1 = new JButton("添加学生");
+        btn1.setBounds(650, 100, 150, 30);
+        JButton btn2 = new JButton("删除学生");
+        btn2.setBounds(650, 200, 150, 30);
+
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String text=js.getText();
-                if(text.isEmpty())
+                String text = js.getText();
+                if (text.isEmpty())
                     return;
-                array.add(text);
-
+                boolean b = array.add(text);
+                System.out.println("添加结果： " + b);
             }
 
         });
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                boolean b = array.remove(js.getText());
+                System.out.println("删除结果： " + b);
             }
 
-            protected void do_button_actionPerformed(ActionEvent E){
+            protected void do_button_actionPerformed(ActionEvent E) {
 
             }
         });
@@ -57,11 +59,16 @@ public class Day_313_1 extends JFrame {
 
         setVisible(true);
     }
-    private void replaceModel(){
+
+    private void replaceModel() {
 
     }
 
     public static void main(String[] args) {
         new Day_313_1();
+    }
+
+    public static void remove(Object o) {
+
     }
 }
