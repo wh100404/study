@@ -49,7 +49,7 @@ public class Day_313_1 extends JFrame {
             }
 
             protected void do_button_actionPerformed(ActionEvent E){
-                ArrayList<String> array=new ArrayList();
+
             }
         });
         c.add(btn1);
