@@ -11,6 +11,7 @@ public class Day_ex_03 extends JFrame {
         getTable();
     }
 
+    //小姐姐真好看
     public void getTable() {
         JTable jt = new JTable();
         jt.setRowHeight(23);
