@@ -7,21 +7,25 @@ import java.util.List;
 
 public class Day_ex_03 extends JFrame {
 
+    JTable jt;
+
     public Day_ex_03() {
         getTable();
     }
 
     public void getTable() {
-//        JTable jt = new JTable();
-//        jt.setRowHeight(23);
-//        String[] colums = {"姓名", "性别", "出生日期"};
-//        DefaultTableModel model = new DefaultTableModel(colums, 0);
-//        jt.setModel(model);
-//        List<String> students = getStudents();
-//        for (String info : students) {
-//            String[] args = info.split(",");
-//            model.addRow(args);
-//        }
+        if (jt == null) {
+            jt = new JTable();
+        }
+        jt.setRowHeight(23);
+        String[] colums = {"姓名", "性别", "出生日期"};
+        DefaultTableModel model = new DefaultTableModel(colums, 0);
+        jt.setModel(model);
+        List<String> students = getStudents();
+        for (String info : students) {
+            String[] args = info.split(",");
+            model.addRow(args);
+        }
     }
 
     public List<String> getStudents() {
