@@ -8,26 +8,24 @@ import java.util.List;
 public class Day_ex_03 extends JFrame {
 
     public Day_ex_03() {
+        getTable();
+    }
 
-        public JTable getTable(){
-            JTable jt = new JTable();
-            if (jt == null) {
-                jt = new JTable();
-                jt.setRowHeight(23);
-                String[] colums = {"姓名", "性别", "出生日期"};
-                DefaultTableModel model = new DefaultTableModel(colums, 0);
-                jt.setModel(model);
-                List<String> students=getStudents();
-                for (String info:students) {
-                    String[] args=info.split(",");
-                    model.addRow(args);
-                }
-            }
-            return jt;
+    public void getTable() {
+        JTable jt = new JTable();
+        jt.setRowHeight(23);
+        String[] colums = {"姓名", "性别", "出生日期"};
+        DefaultTableModel model = new DefaultTableModel(colums, 0);
+        jt.setModel(model);
+        List<String> students = getStudents();
+        for (String info : students) {
+            String[] args = info.split(",");
+            model.addRow(args);
         }
     }
-    public List<String> getStudents(){
-        List<String> list=new ArrayList<String>();
+
+    public List<String> getStudents() {
+        List<String> list = new ArrayList<String>();
         list.add("1,男,3");
         list.add("2,男,4");
         list.add("3,男,5");
