@@ -2,6 +2,7 @@ package com.Day_313;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,12 @@ public class Day_ex_03 extends JFrame {
     JTable jt;
 
     public Day_ex_03() {
+        Container c=getContentPane();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
         getTable();
+        setVisible(true);
     }
 
     public void getTable() {
@@ -26,6 +32,7 @@ public class Day_ex_03 extends JFrame {
             String[] args = info.split(",");
             model.addRow(args);
         }
+        setVisible(true);
     }
 
     public List<String> getStudents() {
