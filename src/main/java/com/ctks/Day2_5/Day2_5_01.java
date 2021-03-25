@@ -31,5 +31,3 @@ public class Day2_5_01 {
             }
         }
 
-    }
-}
