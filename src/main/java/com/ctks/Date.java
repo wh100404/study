@@ -1,4 +1,4 @@
-package com;
+package com.ctks;
 
 import java.util.Scanner;
 
