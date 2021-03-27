@@ -1,11 +1,14 @@
 package com.ctks;
 
+import java.util.Scanner;
+
 public class PaiXu {
     public static void main(String[] args) {
-        int x=30;
-        int y=20;
-        int z=25;
-
+        System.out.println("输入x,y,z的值");
+        Scanner sc=new Scanner(System.in);
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        int z=sc.nextInt();
         int[] a={x,y,z};
         int temp;
         for (int i = 0; i <a.length ; i++) {
