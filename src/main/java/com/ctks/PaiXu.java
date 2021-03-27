@@ -5,6 +5,7 @@ public class PaiXu {
         int x=30;
         int y=20;
         int z=25;
+
         int[] a={x,y,z};
         int temp;
         for (int i = 0; i <a.length ; i++) {
