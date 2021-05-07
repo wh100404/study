@@ -7,18 +7,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Day_313_1 extends JFrame {
+    JList jt = new JList();
+    ArrayList<String> arrayList=new ArrayList<>();
 
-    ArrayList<String> array = new ArrayList<>();
-    private JTextField textField;
-    private JList list;
+
 
     public Day_313_1() {
         setBounds(200, 200, 800, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Container c = getContentPane();
         setLayout(null);
-        JTextArea jt = new JTextArea();
-        jt.setColumns(100);
         jt.setBounds(0, 80, 600, 350);
         c.add(jt);
         JTextField js = new JTextField();
@@ -33,46 +31,54 @@ public class Day_313_1 extends JFrame {
         btn1.setBounds(650, 100, 150, 30);
         JButton btn2 = new JButton("删除学生");
         btn2.setBounds(650, 200, 150, 30);
+       btn1.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               js.requestFocusInWindow();
+               js.selectAll();
+               String a=js.getText();
+               if(a.isEmpty()){
+                   return;
+               }else{
+                   arrayList.add(a);
+               }
+               replaceModel();
 
-        btn1.addActionListener(e -> {
-            String text = js.getText();
-            if (text.isEmpty())
-                return;
-            boolean b = array.add(text);
-            System.out.println("添加结果： " + b);
-            replaceModel();
-        });
-        btn2.addActionListener(e -> {
-            Object value = list.getSelectedValue();
-            boolean b = array.remove(value);
-            System.out.println("删除结果： " + b);
-            replaceModel();
-        });
+           }
+       });
+       btn2.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+              Object b=jt.getSelectedValue();
+              arrayList.remove(b);
+               replaceModel();
+
+           }
+       });
+
         c.add(btn1);
         c.add(btn2);
 
         setVisible(true);
     }
-
-    private void replaceModel() {
-        list.setModel(new AbstractListModel() {
+    private void replaceModel(){
+        jt.setModel(new AbstractListModel() {
             @Override
             public int getSize() {
-                return array.size();
+                return arrayList.size();
             }
 
             @Override
             public Object getElementAt(int index) {
-                return array.get(index);
+                return arrayList.get(index);
             }
         });
     }
+
 
     public static void main(String[] args) {
         new Day_313_1();
     }
 
-    public static void remove(Object o) {
 
-    }
 }
